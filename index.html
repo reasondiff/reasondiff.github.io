@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>ReasonDiff: Reasoning-based Video Generation under Unpaired Text-Image Conditions</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ReasonDiff: Reasoning-based Video Generation under Unpaired Text-Image Conditions</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <!-- <span class="author-block"> -->
+                <p>Anonymous Authors</p></span>
+                <p>Submission Id: 4473</p>
+                
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Text-image to video generation aims to synthesize a video highly aligned with the given image and text conditions. However, existing methods fail to deal with the situation when the given image and text are unpaired, i.e., the events they describe are timestamped separately, where the condition image may be at an arbitrary position in the final video, rather than the first frame. This raises the challenge to reason about the intrinsic connections between the two modalities. To address this, we propose ReasonDiff for unpaired text-image to video generation. Concretely, we leverage the strong reasoning capabilities of a multi-modal large language model (MLLM) to analyze the unpaired image and text condition, generating a plausible per-frame narrative to temporally align them. The MLLM will deduce the most likely position of the condition image within the final generated video. We further introduce an AlignFormer module, which predicts the latent for each frame based on both the condition image and the per-frame narrative guidance. These reasoning enhanced latents are then fused with the initial noisy latents in the diffusion model to guide the generation process. Extensive experiments and ablation studies demonstrate that ReasonDiff significantly improves video generation quality under unpaired text-image conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          
+          <div class="content has-text-justified">
+            <img src="static/images/framework.png">
+          </br></br>
+            <p>
+              Framework of the proposed ReasonDiff model, which mainly consists of two components. For given unpaired image and text conditions, MLLM Driven Multi-frame Reasoner will analyze them and reason out the whole scene, frame-wise, to align the two modalities temporally. This reasoning enhanced information will then be sent into the diffusion model and fused with the initial noisy latents to guide the generation process. The detailed architecture of the proposed AlignFormer module in MLLM Driven Multi-frame Reasoner is illustrated in the upper-right region.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered">
+    <div class="container">
+    <h2 class="title is-3">Generated Samples</h2>
+
+  <table class="center">
+    <tbody><tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr>
+      <td width="23%" style="text-align:center;"><img src="static/images/vase-cat.png" controls=""></img></td>
+      <td width="23%" style="text-align:center;"><video src="static/videos/vase-cat.mp4" controls=""></video></td>
+      <td width="8%"</tr>
+      <td width="23%" style="text-align:center;"><img src="static/images/open-book.png" controls=""></img></td>
+      <td width="23%" style="text-align:center;"><video src="static/videos/open-book.mp4" controls=""></video></td>
+    </tr>
+    <tr>
+      <td width="23%" style="text-align:center;">"<b>A cat plays in the room</b>."</td>
+      <td width="23%" style="text-align:center;"><i>(The cat broke the vase)</i></td>
+      <td width="8%"</tr>
+      <td width="23%" style="text-align:center;">"<b>A person opens the window</b>."</td>
+      <td width="23%" style="text-align:center;"><i>(The wind will blow the pages)</i></td>
+    </tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  </tbody></table>
+</br></br></br>
+
+  <table class="center">
+    <tbody><tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr>
+      <td width="23%" style="text-align:center;"><img src="static/images/bicycle.png" controls=""></img></td>
+      <td width="23%" style="text-align:center;"><video src="static/videos/bicycle_ReasonDiff.mp4" controls=""></video></td>
+      <td width="8%"</tr>
+      <td width="23%" style="text-align:center;"><img src="static/images/broken_chair.png" controls=""></img></td>
+      <td width="23%" style="text-align:center;"><video src="static/videos/broken_chair_ReasonDiff.mp4" controls=""></video></td>
+    </tr>
+    <tr>
+      <td width="23%" style="text-align:center;">"<b>A dog walking on the road.</b>."</td>
+      <td width="23%" style="text-align:center;"><i>(The dog will walk past the bicycle.)</i></td>
+      <td width="8%"</tr>
+      <td width="23%" style="text-align:center;">"<b>A cat plays in the room.</b>."</td>
+      <td width="23%" style="text-align:center;"><i>(The chair is broken by the cat.)</i></td>
+    </tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  </tbody></table>
+
+
+</br></br></br>
+
+<table class="center">
+  <tbody><tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr>
+    <td width="23%" style="text-align:center;"><img src="static/images/soccer.png" controls=""></img></td>
+    <td width="23%" style="text-align:center;"><video src="static/videos/soccer.mp4" controls=""></video></td>
+    <td width="8%"</tr>
+    <td width="23%" style="text-align:center;"><img src="static/images/vase-cat.png" controls=""></img></td>
+    <td width="23%" style="text-align:center;"><video src="static/videos/vase-dog.mp4" controls=""></video></td>
+  </tr>
+  <tr>
+    <td width="23%" style="text-align:center;">"<b>A soccer flying.</b>."</td>
+    <td width="23%" style="text-align:center;"><i>(The window is broken by the soccer.)</i></td>
+    <td width="8%"</tr>
+    <td width="23%" style="text-align:center;">"<b>A dog plays in the room.</b>."</td>
+    <td width="23%" style="text-align:center;"><i>(The dog broken the vase.)</i></td>
+  </tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+
+</br></br></br>
+
+<table class="center">
+  <tbody><tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr>
+    <td width="23%" style="text-align:center;"><img src="static/images/long.png" controls=""></img></td>
+    <td width="23%" style="text-align:center;"><video src="static/videos/long.mp4" controls=""></video></td>
+    <td width="8%"</tr>
+    <td width="23%" style="text-align:center;"><img src="static/images/dog_standing.png" controls=""></img></td>
+    <td width="23%" style="text-align:center;"><video src="static/videos/long_reasondiff.mp4" controls=""></video></td>
+  </tr>
+  <tr>
+    <td width="23%" style="text-align:center;">"<b>Car running on the road.</b>."</td>
+    <td width="23%" style="text-align:center;"><i>(The car runns past the dog.)</i></td>
+    <td width="8%"</tr>
+    <td width="23%" style="text-align:center;">"<b>A man whistles.</b>."</td>
+    <td width="23%" style="text-align:center;"><i>(The dog runs happily to the man.)</i></td>
+  </tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+
+  
+
+</div>
+</div>
+</div>
+</section>
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
