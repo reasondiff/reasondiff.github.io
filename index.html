@@ -273,8 +273,337 @@
 
   </br></br></br>
 
-
   <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Quantitative Comparison</h2>
+          <h4 class="title is-5">Table 1. Quantitative results on the self-constructed dataset.</h4>
+          <table class="center" align="center" border="1">
+            <thead>
+              <th>&nbspModels&nbsp</th>
+              <th>&nbspImaging Quality&nbsp</th>
+              <th>&nbspMotion Smoothness(VBench)&nbsp</th>
+              <th>&nbspDynamic Degree&nbsp</th>
+              <th>&nbsp&nbsp&nbsp&nbspCLIP-Text&nbsp&nbsp&nbsp&nbsp</th>
+              <th>&nbspCLIP-Image&nbsp</th>
+              <th>&nbspMotion Magnitude&nbsp</th>
+              <th>&nbspMotion Smoothness(Worldscore)&nbsp</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SparseCtrl</td>
+                <td>0.503(0.083)</td>
+                <td>0.977(0.015)</td>
+                <td>0.620(0.485)</td>
+                <td>0.079(0.042)</td>
+                <td>0.524(0.061)</td>
+                <td>6.75(3.22)</td>
+                <td>30.17(5.12)</td>
+              </tr>
+              <tr>
+                <td>I2VGen-XL</td>
+                <td><b>0.523</b>(0.130)</td>
+                <td>0.954(0.030)</td>
+                <td><u>0.879</u>(0.336)</td>
+                <td>0.092(0.049)</td>
+                <td>0.464(0.094)</td>
+                <td>31.83(5.79)</td>
+                <td>32.01(4.98) </td>
+              </tr>
+              <tr>
+                <td>Dynamicrafter</td>
+                <td>0.492(0.111)</td>
+                <td>0.979(0.019)</td>
+                <td>0.484(0.499)</td>
+                <td>0.202(0.057)</td>
+                <td>0.508(0.087)</td>
+                <td>14.10(4.02)</td>
+                <td>32.66(5.51)</td>
+              </tr>
+              <tr>
+                <td>ConsistI2V</td>
+                <td>0.505(0.123)</td>
+                <td>0.972(0.019)</td>
+                <td>0.594(0.491)</td>
+                <td>0.096(0.046)</td>
+                <td>0.521(0.085)</td>
+                <td>28.68(5.59)</td>
+                <td>33.81(5.10)</td>
+              </tr>
+              <tr>
+                <td>SVD</td>
+                <td>0.474(0.110)</td>
+                <td>0.976(0.014)</td>
+                <td>0.606(0.488)</td>
+                <td><u>0.225</u>(0.058)</td>
+                <td>0.535(0.097)</td>
+                <td>16.14(3.77)</td>
+                <td>32.94(2.68)</td>
+              </tr>
+              <tr>
+                <td>CogVideoX</td>
+                <td>0.507(0.086)</td>
+                <td>0.949(0.023)</td>
+                <td>0.872(0.089)</td>
+                <td>0.197(0.039)</td>
+                <td><u>0.537</u>(0.078)</td>
+                <td><u>44.44</u>(5.78)</td>
+                <td>33.18(2.54)</td>
+              </tr>
+              <tr>
+                <td>LTX-Video</td>
+                <td>0.398(0.081)</td>
+                <td>0.977(0.008)</td>
+                <td>0.734(0.442)</td>
+                <td>0.211(0.051)</td>
+                <td><b>0.544</b>(0.084)</td>
+                <td>7.27(2.55)</td>
+                <td><u>34.41</u>(2.79)</td>
+              </tr>
+              <tr>
+                <td>Wan2.1</td>
+                <td>0.512(0.103)</td>
+                <td><u>0.980</u>(0.023)</td>
+                <td>0.810(0.28)</td>
+                <td>0.224(0.056)</td>
+                <td>0.518(0.079)</td>
+                <td>20.90(4.12)</td>
+                <td>33.02(2.85)</td>
+              </tr>
+              <tr>
+                <td><b>ReasonDiff</b></td>
+                <td><u>0.516</u>(0.104)</td>
+                <td><b>0.984</b>(0.041)</td>
+                <td><b>0.882</b>(0.323)</td>
+                <td><b>0.252</b>(0.052)</td>
+                <td>0.507(0.074)</td>
+                <td><b>46.47</b>(5.59)</td>
+                <td><b>34.61</b>(1.89)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          </br></br>
+          <h4 class="title is-5">Table 2. Quantitative results on MSR-VTT dataset.</h4>
+          <table class="center" align="center" border="1">
+            <thead>
+              <th>&nbspModels&nbsp</th>
+              <th>&nbspImaging Quality&nbsp</th>
+              <th>&nbspMotion Smoothness(VBench)&nbsp</th>
+              <th>&nbspDynamic Degree&nbsp</th>
+              <th>&nbsp&nbsp&nbsp&nbspCLIP-Text&nbsp&nbsp&nbsp&nbsp</th>
+              <th>&nbspCLIP-Image&nbsp</th>
+              <th>&nbspMotion Magnitude&nbsp</th>
+              <th>&nbspMotion Smoothness(Worldscore)&nbsp</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SparseCtrl</td>
+                <td>0.402(0.098)</td>
+                <td>0.912(0.021)</td>
+                <td>0.388(0.503)</td>
+                <td>0.187(0.039)</td>
+                <td>0.562(0.090)</td>
+                <td>6.89(2.12)</td>
+                <td>29.85(3.77)</td>
+              </tr>
+              <tr>
+                <td>I2VGen-XL</td>
+                <td>0.536(0.135)</td>
+                <td>0.942(0.036)</td>
+                <td>0.505(0.293)</td>
+                <td><u>0.208</u>(0.039)</td>
+                <td>0.567(0.082)</td>
+                <td>24.2(4.19)</td>
+                <td>30.26(3.32)</td>
+              </tr>
+              <tr>
+                <td>Dynamicrafter</td>
+                <td>0.517(0.123)</td>
+                <td><u>0.984</u>(0.017)</td>
+                <td>0.440(0.496)</td>
+                <td>0.201(0.043)</td>
+                <td>0.526(0.091)</td>
+                <td>12.77(3.65)</td>
+                <td>31.08(3.60)</td>
+              </tr>
+              <tr>
+                <td>ConsistI2V</td>
+                <td>0.378(0.091)</td>
+                <td>0.964(0.027)</td>
+                <td>0.572(0.469)</td>
+                <td>0.192(0.042)</td>
+                <td>0.501(0.083)</td>
+                <td>30.56(5.83)</td>
+                <td>33.26(4.73)</td>
+              </tr>
+              <tr>
+                <td>SVD</td>
+                <td>0.477(0.119)</td>
+                <td>0.978(0.014)</td>
+                <td>0.605(0.488)</td>
+                <td><u>0.208</u>(0.041)</td>
+                <td>0.570(0.096)</td>
+                <td>18.36(4.00)</td>
+                <td>33.11(3.98)</td>
+              </tr>
+              <tr>
+                <td>CogVideoX</td>
+                <td>0.552(0.082)</td>
+                <td>0.970(0.015)</td>
+                <td><u>0.688</u>(0.323)</td>
+                <td>0.177(0.250)</td>
+                <td><u>0.572</u>(0.059)</td>
+                <td><u>34.61</u>(4.48)</td>
+                <td>33.40(2.54)</td>
+              </tr>
+              <tr>
+                <td>LTX-Video</td>
+                <td>0.406(0.087)</td>
+                <td><b>0.986</b>(0.010)</td>
+                <td><b>0.695</b>(0.460)</td>
+                <td>0.206(0.037)</td>
+                <td><b>0.588</b>(0.078)</td>
+                <td>7.12(2.49)</td>
+                <td><u>33.83</u>(3.01)</td>
+              </tr>
+              <tr>
+                <td>Wan2.1</td>
+                <td><u>0.560</u>(0.111)</td>
+                <td>0.962(0.023)</td>
+                <td>0.665(0.183)</td>
+                <td>0.191(0.036)</td>
+                <td>0.552(0.075)</td>
+                <td>26.17(4.24)</td>
+                <td>33.53(2.64)</td>
+              </tr>
+              <tr>
+                <td><b>ReasonDiff</b></td>
+                <td><b>0.571</b>(0.108)</td>
+                <td><u>0.984</u>(0.017)</td>
+                <td>0.673(0.434)</td>
+                <td><b>0.214</b>(0.047)</td>
+                <td><u>0.572</u>(0.073)</td>
+                <td><b>41.98</b>(3.95)</td>
+                <td><b>33.89</b>(2.71)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          </br></br>
+          <h4 class="title is-5">Table 3. Quantitative results on UCF-101 dataset.</h4>
+          <table class="center" align="center" border="1">
+            <thead>
+              <th>&nbspModels&nbsp</th>
+              <th>&nbspImaging Quality&nbsp</th>
+              <th>&nbspMotion Smoothness(VBench)&nbsp</th>
+              <th>&nbspDynamic Degree&nbsp</th>
+              <th>&nbsp&nbsp&nbsp&nbspCLIP-Text&nbsp&nbsp&nbsp&nbsp</th>
+              <th>&nbspCLIP-Image&nbsp</th>
+              <th>&nbspMotion Magnitude&nbsp</th>
+              <th>&nbspMotion Smoothness(Worldscore)&nbsp</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SparseCtrl</td>
+                <td>0.302(0.069)</td>
+                <td>0.934(0.028)</td>
+                <td>0.379(0.460)</td>
+                <td>0.168(0.033)</td>
+                <td>0.535(0.048)</td>
+                <td>7.20(2.98)</td>
+                <td>25.77(4.15)</td>
+              </tr>
+              <tr>
+                <td>I2VGen-XL</td>
+                <td><b>0.481<b>(0.087)</td>
+                <td>0.940(0.032)</td>
+                <td>0.622(0.267)</td>
+                <td>0.164(0.033)</td>
+                <td>0.561(0.067)</td>
+                <td>43.39(5.62)</td>
+                <td>31.20(1.04)</td>
+              </tr>
+              <tr>
+                <td>Dynamicrafter</td>
+                <td>0.419(0.083)</td>
+                <td>0.980(0.025)</td>
+                <td>0.356(0.478)</td>
+                <td>0.177(0.038)</td>
+                <td>0.541(0.053)</td>
+                <td>13.53(4.18)</td>
+                <td>29.85(3.36)</td>
+              </tr>
+              <tr>
+                <td>ConsistI2V</td>
+                <td>0.465(0.130)</td>
+                <td>0.969(0.025)</td>
+                <td>0.615(0.486)</td>
+                <td>0.172(0.030)</td>
+                <td>0.552(0.054)</td>
+                <td><u>48.32</u>(7.54)</td>
+                <td>32.60(3.81)</td>
+              </tr>
+              <tr>
+                <td>SVD</td>
+                <td>0.380(0.079)</td>
+                <td>0.982(0.010)</td>
+                <td>0.489(0.499)</td>
+                <td>0.182(0.029)</td>
+                <td>0.569(0.056)</td>
+                <td>15.24(3.48)</td>
+                <td>32.96(2.38)</td>
+              </tr>
+              <tr>
+                <td>CogVideoX</td>
+                <td>0.468(0.043)</td>
+                <td>0.972(0.012)</td>
+                <td>0.880(0.327)</td>
+                <td>0.179(0.024)</td>
+                <td><b>0.572</b>(0.041)</td>
+                <td>20.11(4.35)</td>
+                <td><b>34.34</b>(2.24)</td>
+              </tr>
+              <tr>
+                <td>LTX-Video</td>
+                <td>0.346(0.058)</td>
+                <td><b>0.988</b>(0.018)</td>
+                <td>0.761(0.426)</td>
+                <td>0.189(0.023)</td>
+                <td>0.552(0.062)</td>
+                <td>7.69(3.22)</td>
+                <td>33.29(2.17)</td>
+              </tr>
+              <tr>
+                <td>Wan2.1</td>
+                <td>0.446(0.077)</td>
+                <td>0.948(0.027)</td>
+                <td><u>0.883</u>(0.127)</td>
+                <td><b>0.196</b>(0.040)</td>
+                <td><u>0.571</u>(0.044)</td>
+                <td>44.87(5.34)</td>
+                <td>33.22(2.02)</td>
+              </tr>
+              <tr>
+                <td><b>ReasonDiff</b></td>
+                <td><u>0.470</u>(0.092)</td>
+                <td><b>0.988</b>(0.017)</td>
+                <td><b>0.899</b>(0.314)</td>
+                <td><u>0.192</u>(0.035)</td>
+                <td>0.542(0.052)</td>
+                <td><b>52.54</b>(5.47)</td>
+                <td><u>34.15</u>(2.43)</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered">
         <div class="container">
@@ -302,7 +631,7 @@
                 </td>
                 <td width="23%" style="text-align:center;"></td>
                 <td width="8%"></td>
-                <td width="23%" style="text-align:center;">"<b>ReasonDiff</b>"</td>
+                <td width="23%" style="text-align:center;"><b>ReasonDiff</b></td>
                 <td width="23%" style="text-align:center;"></td>
               </tr>
               <tr>
@@ -424,64 +753,67 @@
     </div>
   </section>
 
-  <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="columns is-centered has-text-centered">
-      <div class="container">
-        <h2 class="title is-3">Wan2.1 v.s Wan2.1+ReasonDiff</h2>
-        <table class="center">
-          <tbody>
-            <tr>
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Wan2.1 v.s Wan2.1+ReasonDiff</h2>
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/broken_window.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/wanx-original-broken-window-long.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/wanx-broken-window-long.mp4" controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A soccer flying</i></td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1+ReasonDiff</b></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/open-book.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/wanx-original-open-book-long.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/wanx-open-book-long.mp4" controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A person opens the window</i>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1+ReasonDiff</b></td>
+              </tr>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-            </tr>
-            <tr>
-              <td width="23%" style="text-align:center;"><img src="static/images/broken_window.png" controls=""></img>
-              </td>
-              <td width="23%" style="text-align:center;"></td>
-              <td width="8%"></td> 
-              <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wanx-original-broken-window-long.mp4" controls=""></video></td>
-              <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wanx-broken-window-long.mp4"
-                controls=""></video></td>
-            </tr>
-            <tr>
-              <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A soccer flying</i></td>
-              <td width="23%" style="text-align:center;"></td>
-              <td width="8%"></td>
-              <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
-              <td width="23%" style="text-align:center;"><b>Wan2.1+ReasonDiff</b></td>
-            </tr>
-            <tr>
-              <td width="23%" style="text-align:center;"><img src="static/images/open-book.png" controls=""></img>
-              </td>
-              <td width="23%" style="text-align:center;"></td>
-              <td width="8%"></td> 
-              <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wanx-original-open-book-long.mp4" controls=""></video></td>
-              <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wanx-open-book-long.mp4"
-                controls=""></video></td>
-            </tr>
-            <tr>
-              <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A person opens the window</i></td>
-              <td width="23%" style="text-align:center;"></td>
-              <td width="8%"></td>
-              <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
-              <td width="23%" style="text-align:center;"><b>Wan2.1+ReasonDiff</b></td>
-            </tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- <p>In this section, we show that ReaonDiff module is compatible with other video generation framework, i.e., Wan2.1, and can generate much longer videos (in this example, 81 frames). From the results we can see that ReasonDiff has successfully integrated reasoning capabilities into Wan2.1 model and generate videos that are coherent with both the text and image conditions, even though they are unpaired.</p> -->
+              </tr>
+            </tbody>
+          </table>
+          <!-- <p>In this section, we show that ReaonDiff module is compatible with other video generation framework, i.e., Wan2.1, and can generate much longer videos (in this example, 81 frames). From the results we can see that ReasonDiff has successfully integrated reasoning capabilities into Wan2.1 model and generate videos that are coherent with both the text and image conditions, even though they are unpaired.</p> -->
+        </div>
       </div>
     </div>
-  </div>
   </section>
 
 
@@ -503,12 +835,13 @@
                 <td width="23%" style="text-align:center;"><img src="static/images/vase.png" controls=""></img>
                 </td>
                 <td width="23%" style="text-align:center;"></td>
-                <td width="8%"></td> 
+                <td width="8%"></td>
                 <td width="23%" style="text-align:center;"><video src="static/videos/vase.mp4" controls=""></video></td>
                 <td width="23%" style="text-align:center;"></td>
               </tr>
               <tr>
-                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A cat plays in the room</i></td>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A cat plays in the room</i>
+                </td>
                 <td width="23%" style="text-align:center;"></td>
                 <td width="8%"></td>
                 <td width="23%" style="text-align:center;"><b>ReasonDiff</b></td>
@@ -517,10 +850,13 @@
               <tr>
                 <td width="23%" style="text-align:center;"><img src="static/images/attention/1.png" controls=""></img>
                 </td>
-                <td width="23%" style="text-align:center;"><img src="static/images/attention/4.png" controls=""></img></td>
-                <td width="8%"></td> 
-                <td width="23%" style="text-align:center;"><img src="static/images/attention/8.png" controls=""></img></td>
-                <td width="23%" style="text-align:center;"><img src="static/images/attention/11.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><img src="static/images/attention/4.png" controls=""></img>
+                </td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><img src="static/images/attention/8.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"><img src="static/images/attention/11.png" controls=""></img>
+                </td>
               </tr>
               <tr>
                 <td width="23%" style="text-align:center;"><b>Frame 0</b></td>
@@ -532,10 +868,13 @@
               <tr>
                 <td width="23%" style="text-align:center;"><img src="static/images/attention/15.png" controls=""></img>
                 </td>
-                <td width="23%" style="text-align:center;"><img src="static/images/attention/18.png" controls=""></img></td>
-                <td width="8%"></td> 
-                <td width="23%" style="text-align:center;"><img src="static/images/attention/21.png" controls=""></img></td>
-                <td width="23%" style="text-align:center;"><img src="static/images/attention/24.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><img src="static/images/attention/18.png" controls=""></img>
+                </td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><img src="static/images/attention/21.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"><img src="static/images/attention/24.png" controls=""></img>
+                </td>
               </tr>
               <tr>
                 <td width="23%" style="text-align:center;"><b>Frame 60</b></td>
@@ -552,11 +891,13 @@
               </tr>
             </tbody>
           </table>
+          <p>Averaged attention scores between the CLIP-encoded embedding of the word <i>breaking</i> and the hidden
+            states of the video frames in the second Transformer block. </p>
           <!-- <p>In this section, we illustrate the learned temporal reasoning capabilities by visualizing the attention map corresponding to the inferred key action <i>breaking</i> in the vase-cat example. Specifically, we compute the attention scores between the CLIP-encoded embedding of the word breaking and the hidden states of the video frames in the second layer of the UNet. These attention maps are then averaged to obtain a frame-wise attention distribution. From the results of ReasonDiff we can observe that, the area with high attention score roughly follows the interaction of the vase and the cat. In contrast to the baseline model Dynamicrafter, ReasonDiff successfully captures the temporal interaction between the two entities (i.e., the vase and the cat), rather than merely rendering a static composition. This highlights the model's ability to infer dynamic causal relationships from unpaired text-image inputs.</p> -->
         </div>
       </div>
     </div>
-    </section>
+  </section>
 
   <footer class="footer">
     <div class="container">
