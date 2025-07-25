@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>ReasonDiff: Reasoning-based Video Generation under Unpaired Text-Image Conditions</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ReasonDiff: Reasoning-based Video Generation under Unpaired
+              Text-Image Conditions</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <!-- <span class="author-block"> -->
+              <p>Anonymous Authors</p></span>
+
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Text-image to video generation aims to synthesize a video highly aligned with the given image and text conditions. However, existing methods fail to deal with the situation when the given image and text are unpaired, i.e., the events they describe are timestamped separately, where the condition image may be at an arbitrary position in the final video, rather than the first frame. This raises the challenge to reason about the intrinsic connections between the two modalities. To address this, we propose ReasonDiff for unpaired text-image to video generation. Concretely, we leverage the strong reasoning capabilities of a multi-modal large language model (MLLM) to analyze the unpaired image and text condition, generating a plausible per-frame narrative to temporally align them. The MLLM will deduce the most likely position of the condition image within the final generated video. We further introduce an AlignFormer module, which predicts the latent for each frame based on both the condition image and the per-frame narrative guidance. These reasoning enhanced latents are then fused with the condition frame to guide the generation process. Extensive experiments and ablation studies demonstrate that ReasonDiff significantly improves video generation quality under unpaired text-image conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <!-- Paper video. -->
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Method</h2>
+
+            <div class="content has-text-justified">
+              <img src="static/images/framework.png">
+              </br></br>
+              <p>
+                Overview of the proposed ReasonDiff model, which consists of two key components: (1) the MLLM-Driven Multi-frame Reasoner, and (2) the Reasoning-Guided Generative Model. The generative model operates under the guidance of the multi-modal reasoning results generated by the reasoner.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Generated Samples</h2>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/open_book.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-open-book.mp4" controls=""></video>
+                </td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><img src="static/images/bicycle-new.png"
+                    controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-bicycle.mp4" controls=""></video>
+                </td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;">"<b>A man opens the window</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The wind will blow the pages)</i></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;">"<b>A dog running on the road</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The dog will run past the bicycle)</i></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/broken_table.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-broken-table.mp4"
+                    controls=""></video></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><img
+                    src="static/images/broken_window.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-broken-window.mp4"
+                    controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;">"<b>A cat plays in the room.</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The table leg is broken by the cat)</i></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;">"<b>A soccer flying.</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The window is broken by the soccer)</i></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/vase.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-vase.mp4" controls=""></video>
+                </td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><img src="static/images/sit_dog.png"
+                    controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-sit-dog.mp4" controls=""></video>
+                </td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;">"<b>A cat plays in the room.</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The vase is broken by the cat)</i></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;">"<b>A car running on the road.</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The car will run past the dog)</i></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/candle.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-candle.mp4" controls=""></video></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><img
+                    src="static/images/dog_standing.png" controls=""></img></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/reasondiff-dog-standing.mp4"
+                    controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;">"<b>A person opens the window</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The wind will blow the candle out)</i></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;">"<b>A man whistles.</b>."</td>
+                <td width="23%" style="text-align:center;"><i>(The dog runs happily to the man.)</i></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </br></br></br>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Qualitative Comparison</h2>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/open_book.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/reasondiff-open-book.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A person opens the window.</i>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><b>ReasonDiff</b></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/dynamicrafter-open-book.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/ltx-open-book.mp4"
+                    controls=""></video></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/cogvideo-open-book.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wan-open-book.mp4"
+                    controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Dynamicrafter</b></td>
+                <td width="23%" style="text-align:center;"><b>LTX-Video</b></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><b>CogVideoX</b></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/broken_table.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/reasondiff-broken-table.mp4"
+                    controls=""></video></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A cat plays in the room.</i></td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><b>ReasonDiff</b></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/dynamicrafter-broken-table.mp4"
+                    controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/ltx-broken-table.mp4"
+                    controls=""></video></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/cogvideo-broken-table.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wan-broken-table.mp4"
+                    controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Dynamicrafter</b></td>
+                <td width="23%" style="text-align:center;"><b>LTX-Video</b></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><b>CogVideoX</b></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/broken_window.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/reasondiff-broken-window.mp4"
+                    controls=""></video></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A soccer flying.</i></td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><b>ReasonDiff</b></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/dynamicrafter-broken-window.mp4"
+                    controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/ltx-broken-window.mp4"
+                    controls=""></video></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/cogvideo-broken-window.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wan-broken-window.mp4"
+                    controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Dynamicrafter</b></td>
+                <td width="23%" style="text-align:center;"><b>LTX-Video</b></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><b>CogVideoX</b></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><img src="static/images/bicycle-new.png" controls=""></img>
+                </td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/reasondiff-bicycle.mp4"
+                    controls=""></video></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Condition Image</b></br> <i>A dog running on the road.</i></td>
+                <td width="23%" style="text-align:center;"></td>
+                <td width="8%"></td>
+                <td width="23%" style="text-align:center;"><b>ReasonDiff</b></td>
+                <td width="23%" style="text-align:center;"></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/dynamicrafter-bicycle.mp4"
+                    controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/ltx-bicycle.mp4"
+                    controls=""></video></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><video
+                    src="static/videos/qualitative/cogvideo-bicycle.mp4" controls=""></video></td>
+                <td width="23%" style="text-align:center;"><video src="static/videos/qualitative/wan-bicycle.mp4"
+                    controls=""></video></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>Dynamicrafter</b></td>
+                <td width="23%" style="text-align:center;"><b>LTX-Video</b></td>
+                <td width="8%" </tr> <td width="23%" style="text-align:center;"><b>CogVideoX</b></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1</b></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</br></br></br>
+
+  <section class="hero is-small is-light"></section>
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Quantitative Comparison (Complete tables)</h2>
+          <h4 class="title is-5">Table 1. Quantitative results on the self-constructed ActivityNet dataset.</h4>
+          <table class="center" align="center" border="1">
+            <thead>
+              <th>&nbspModels&nbsp</th>
+              <th>&nbspImaging Quality&nbsp</th>
+              <th>&nbspMotion Smooth&nbsp</th>
+              <th>&nbspDynamic Degree&nbsp</th>
+              <th>&nbspCLIP-Text&nbsp</th>
+              <th>&nbspCLIP-Image&nbsp</th>
+              <th>&nbspUser Rank&nbsp</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dynamicrafter</td>
+                <td>0.492(0.111)</td>
+                <td>0.979(0.019)</td>
+                <td>0.484(0.499)</td>
+                <td>0.202(0.057)</td>
+                <td>0.508(0.087)</td>
+                <td>2.871(1.239)</td>
+              </tr>
+              <tr>
+                <td>LTX-Video</td>
+                <td>0.398(0.081)</td>
+                <td>0.977(0.008)</td>
+                <td>0.734(0.442)</td>
+                <td>0.211(0.051)</td>
+                <td><b>0.544</b>(0.084)</td>
+                <td>3.307(1.259)</td>
+              </tr>
+              <tr>
+                <td>CogVideoX</td>
+                <td>0.507(0.086)</td>
+                <td>0.949(0.023)</td>
+                <td><u>0.872</u>(0.089)</td>
+                <td>0.197(0.039)</td>
+                <td><u>0.537</u>(0.078)</td>
+                <td>4.384(1.041)</td>
+              </tr>
+              <tr>
+                <td>Wan2.1</td>
+                <td><u>0.512</u>(0.103)</td>
+                <td><u>0.980</u>(0.023)</td>
+                <td>0.810(0.280)</td>
+                <td><u>0.224</u>(0.056)</td>
+                <td>0.518(0.079)</td>
+                <td><u>2.692</u>(1.079)</td>
+              </tr>
+              <tr>
+                <td><b>ReasonDiff</b></td>
+                <td><b>0.528</b>(0.106)</td>
+                <td><b>0.986</b>(0.048)</td>
+                <td><b>0.936</b>(0.244)</td>
+                <td><b>0.261</b>(0.061)</td>
+                <td>0.528(0.082)</td>
+                <td><b>1.743</b>(1.044)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          </br></br>
+          <h4 class="title is-5">Table 2. Quantitative results on MSR-VTT dataset.</h4>
+          <table class="center" align="center" border="1">
+            <thead>
+              <th>&nbspModels&nbsp</th>
+              <th>&nbspImaging Quality&nbsp</th>
+              <th>&nbspMotion Smooth&nbsp</th>
+              <th>&nbspDynamic Degree&nbsp</th>
+              <th>&nbspCLIP-Text&nbsp</th>
+              <th>&nbspCLIP-Image&nbsp</th>
+              <th>&nbspUser Rank&nbsp</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dynamicrafter</td>
+                <td>0.517(0.123)</td>
+                <td><u>0.984</u>(0.017)</td>
+                <td>0.440(0.496)</td>
+                <td>0.201(0.043)</td>
+                <td>0.526(0.091)</td>
+                <td>3.179(1.189)</td>
+              </tr>
+              <tr>
+                <td>LTX-Video</td>
+                <td>0.406(0.087)</td>
+                <td><b>0.986</b>(0.010)</td>
+                <td><b>0.695</b>(0.460)</td>
+                <td><u>0.206</u>(0.037)</td>
+                <td><b>0.588</b>(0.078)</td>
+                <td>4.051(0.971)</td>
+              </tr>
+              <tr>
+                <td>CogVideoX</td>
+                <td>0.552(0.082)</td>
+                <td>0.970(0.015)</td>
+                <td><u>0.688</u>(0.323)</td>
+                <td>0.177(0.250)</td>
+                <td><u>0.572</u>(0.059)</td>
+                <td>3.256(1.481)</td>
+              </tr>
+              <tr>
+                <td>Wan2.1</td>
+                <td><u>0.560</u>(0.111)</td>
+                <td>0.962(0.023)</td>
+                <td>0.665(0.183)</td>
+                <td>0.191(0.036)</td>
+                <td>0.552(0.075)</td>
+                <td><u>2.743</u>(1.140)</td>
+              </tr>
+              <tr>
+                <td><b>ReasonDiff</b></td>
+                <td><b>0.571</b>(0.109)</td>
+                <td><u>0.984</u>(0.028)</td>
+                <td>0.673(0.470)</td>
+                <td><b>0.214</b>(0.044)</td>
+                <td><u>0.572</u>(0.092)</td>
+                <td><b>1.769</b>(1.245)</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the of this website, we just ask that you link back to this page in the footer.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
